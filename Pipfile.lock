@@ -1,19 +1,19 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e07dd96e81de0fe4090df1861abc4fb93110b7f67a67be20b45d5a041cb1eacc"
+            "sha256": "32aa90a5dd27d403c89f71ca44bf422de8e1ae5f2d67c25657ea8d1fd9e8733d"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.5.2",
+            "implementation_version": "3.6.3",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
             "platform_release": "4.4.0-112-generic",
             "platform_system": "Linux",
             "platform_version": "#135-Ubuntu SMP Fri Jan 19 11:48:36 UTC 2018",
-            "python_full_version": "3.5.2",
-            "python_version": "3.5",
+            "python_full_version": "3.6.3",
+            "python_version": "3.6",
             "sys_platform": "linux"
         },
         "pipfile-spec": 6,
@@ -29,6 +29,28 @@
         ]
     },
     "default": {
+        "boto3": {
+            "hashes": [
+                "sha256:8db0b63e0bdf0b188803a4a793a0779369d7b08e45758d0fe0ac610d124bc019",
+                "sha256:0591da93d0c5e8fda7f032cd3e175e93ab0baf7b5174e07aee92b48baeb5582f"
+            ],
+            "version": "==1.5.32"
+        },
+        "botocore": {
+            "hashes": [
+                "sha256:52bc09d2f4439bb89ec9606ad652dedeb5bfe2c4db56f27417f4d2e5e50e4e79",
+                "sha256:d798b9aa32e070f6483a9723fb3296da546a2d9d09f17bb62adc57eb5771aaa6"
+            ],
+            "version": "==1.8.46"
+        },
+        "docutils": {
+            "hashes": [
+                "sha256:7a4bd47eaf6596e1295ecb11361139febe29b084a87bf005bf899f9a42edc3c6",
+                "sha256:02aec4bd92ab067f6ff27a38a38a41173bf01bed8f89157768c1573f53e474a6",
+                "sha256:51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+            ],
+            "version": "==0.14"
+        },
         "elasticsearch": {
             "hashes": [
                 "sha256:307055861d0290b830bd1ec4b82d41ce0f19f6a4899635956bd16bc61e3e90b1",
@@ -62,6 +84,13 @@
                 "sha256:200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
             ],
             "version": "==1.0.19"
+        },
+        "jmespath": {
+            "hashes": [
+                "sha256:f11b4461f425740a1d908e9a3f7365c3d2e569f6ca68a2ff8bc5bcd9676edd63",
+                "sha256:6a81d4c9aa62caf061cb517b4d9ad1dd300374cd4706997aff9cd6aedd61fc64"
+            ],
+            "version": "==0.9.3"
         },
         "pyaes": {
             "hashes": [
@@ -107,6 +136,13 @@
             ],
             "version": "==3.4.2"
         },
+        "s3transfer": {
+            "hashes": [
+                "sha256:c7a9ec356982d5e9ab2d4b46391a7d6a950e2b04c472419f5fdec70cc0ada72f",
+                "sha256:90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1"
+            ],
+            "version": "==0.1.13"
+        },
         "six": {
             "hashes": [
                 "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb",
@@ -116,10 +152,10 @@
         },
         "telethon": {
             "hashes": [
-                "sha256:95ec0487edde64d05ef2d25fbd7576b5e995ac9956479b510e35036fbdb4548c",
-                "sha256:caaa274b4fa45c841e7e6cea62f9762bab2e4920642cf8a6b2414145b152d2b4"
+                "sha256:4c920d76fa54956926352a5fadd9c4074014a867966ef0c1109e6beb34380b54",
+                "sha256:cb5ad0e36f806caf755b090ef40067d3761cdee92b0249daf0c8900306ce2d38"
             ],
-            "version": "==0.17.3"
+            "version": "==0.17.2.1"
         },
         "urllib3": {
             "hashes": [

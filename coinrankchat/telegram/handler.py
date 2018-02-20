@@ -31,6 +31,7 @@ def join_chat(reference):
 
 
 def _handle_update(update):
+    print(update) #FIXME remove this
     if isinstance(update, UpdateNewChannelMessage):
         _handleNewChannelMessage(update)
 

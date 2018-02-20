@@ -12,10 +12,11 @@ python_version = "3.6"
 
 [packages]
 
-telethon = "*"
+telethon = "==0.17.2.1"
 falcon = "*"
 gunicorn = "*"
 elasticsearch-dsl = "*"
+"boto3" = "*"
 
 
 [dev-packages]
