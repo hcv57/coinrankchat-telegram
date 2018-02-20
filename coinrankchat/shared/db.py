@@ -1,0 +1,95 @@
+from elasticsearch_dsl import connections, DocType, Text, Integer, Date, datetime, Keyword
+
+from coinrankchat.shared import config
+
+
+_connection = connections.create_connection(hosts=[config.ELASTIC_HOST])
+
+class ChatUpdate(DocType):
+    channel_id = Keyword()
+    title = Text()
+    username = Keyword()
+    participants_count = Integer()
+    created_at = Date()
+
+    class Meta:
+        index = 'chatupdates'
+
+    def save(self, **kwargs):
+        self.created_at = datetime.utcnow()
+        return super().save(**kwargs)
+
+def _setup_database():
+    ChatUpdate.init()
+
+def load_all_channels():
+    response = ChatUpdate.search().from_dict(SEARCH_QUERY).execute()
+    buckets = response.aggregations.group.buckets
+    return [
+        dict(
+            [
+                ("rank", i+1),
+                ("channel_id", b.key),
+                ("title",  b.group_docs.hits[0].title),
+                ("username",  b.group_docs.hits[0].username),
+                ("participants_count", b.group_docs.hits[0].participants_count),
+                *[(r.key, r.doc_count) for r in b.range.buckets]
+            ]
+        )
+        for (i, b) in enumerate(buckets)
+    ]
+
+_setup_database()
+
+SEARCH_QUERY = {"query": {
+  "constant_score": {
+    "filter": {
+      "range": {
+        "created_at": {
+          "gte": "now-2d"
+        }
+      }
+    }
+  }
+},"size": 0,
+  "aggs": {
+  "group": {
+    "terms": {
+      "field": "channel_id",
+      "size": 100
+    },
+    "aggs": {
+      "group_docs": {
+        "top_hits": {
+          "size": 1,
+          "sort": [{"created_at": {"order": "desc"}}]
+        }
+      },
+      "range":{
+        "date_range": {
+          "field": "created_at",
+          "ranges": [
+              {
+                  "key": "messages_1h",
+                  "from": "now-1h"
+              },
+              {
+                  "key": "messages_prev_1h",
+                  "from": "now-2h",
+                  "to": "now-1h"
+              },
+              {
+                  "key": "messages_24h",
+                  "from": "now-1d"
+              },
+              {
+                  "key": "messages_prev_24h",
+                  "from": "now-2d",
+                  "to": "now-1d"
+              },
+          ]
+        }
+      }
+    }
+  }
+}}
