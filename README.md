@@ -11,3 +11,6 @@
 
 ## Requirements generation
 `pipenv lock -r > requirements.txt`
+
+## Grant temp access to GCR registry
+`gcloud docker --authorize-only `

@@ -10,6 +10,7 @@ from .connection import client
 
 
 def start():
+    client.get_dialogs(limit=9999)
     client.add_update_handler(_handle_update)
     client.idle()
     client.disconnect()
