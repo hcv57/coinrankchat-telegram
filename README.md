@@ -12,5 +12,10 @@
 ## Requirements generation
 `pipenv lock -r > requirements.txt`
 
-## Grant temp access to GCR registry
+## GCR registry
+### Grant temp access (works only locally )
 `gcloud docker --authorize-only `
+### JSON token
+- `gcloud auth print-access-token` - get token locally
+- `docker -': docker login -u _token -p "...token..." https://gcr.io
+`

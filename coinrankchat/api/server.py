@@ -1,12 +1,12 @@
-# run from project root with
-# gunicorn coinrankchat.api.server
-# then visit
-# http://127.0.0.1:8000/channels
-
 import falcon
 import json
 
 import coinrankchat.shared.db as db
+
+class Home():
+
+    def on_get(self, _req, resp):
+        resp.body = "API Home"
 
 class Channels():
 
@@ -16,4 +16,5 @@ class Channels():
 
 
 api = application = falcon.API()
+api.add_route('/', Home())
 api.add_route('/channels', Channels())

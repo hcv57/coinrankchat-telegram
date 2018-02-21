@@ -3,13 +3,10 @@ from elasticsearch_dsl import connections, DocType, Text, Integer, Date, datetim
 
 from coinrankchat.shared import config
 
-while True:
-    try:
-        _connection = connections.create_connection(hosts=[config.ELASTIC_HOST])
-    except:
-        print("Could not connect to DB... retrying in 5 secons.")
-        time.sleep(5)
+_connection = connections.create_connection(hosts=[config.ELASTIC_HOST], timeout=10, max_retries=20)
 
+while not _connection.ping():
+    time.sleep(5)
 
 class ChatUpdate(DocType):
     channel_id = Keyword()
@@ -36,9 +33,9 @@ def load_all_channels():
             [
                 ("rank", i+1),
                 ("channel_id", b.key),
-                ("title",  b.group_docs.hits[0].title),
-                ("username",  b.group_docs.hits[0].username),
-                ("participants_count", b.group_docs.hits[0].participants_count),
+                ("title",  b.group_docs.hits.hits[0]['_source'].get('title')),
+                ("username",  b.group_docs.hits.hits[0]['_source'].get('username')),
+                ("participants_count", b.group_docs.hits.hits[0]['_source'].get('participants_count')),
                 *[(r.key, r.doc_count) for r in b.range.buckets]
             ]
         )

@@ -8,9 +8,18 @@ from telethon.tl.types import UpdateNewChannelMessage, Message, ChatPhotoEmpty, 
 from coinrankchat.shared import db, config
 from .connection import client
 
+import logging
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
+log.addHandler(logging.StreamHandler())
 
 def start():
-    client.get_dialogs(limit=9999)
+    dialogs = client.get_dialogs(limit=9999)
+    # for d in dialogs.data:
+    #     e = client.get_entity(d.dialog.peer)
+    #     log.info("Dialog entity: %s" % e)
+    #     #FIXME here one could get them profile images
     client.add_update_handler(_handle_update)
     client.idle()
     client.disconnect()
@@ -32,11 +41,11 @@ def join_chat(reference):
 
 
 def _handle_update(update):
-    print(update) #FIXME remove this
     if isinstance(update, UpdateNewChannelMessage):
         _handleNewChannelMessage(update)
 
 def _handleNewChannelMessage(update):
+    log.info("Handling update: %s " % update)
     if isinstance(update.message, MessageService) and isinstance(update.message.action, MessageActionChatEditPhoto):
         entity = client.get_entity(update.message.to_id)
         _store_entity_or_default_picture(entity)
