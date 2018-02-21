@@ -1,9 +1,15 @@
+import time
 from elasticsearch_dsl import connections, DocType, Text, Integer, Date, datetime, Keyword
 
 from coinrankchat.shared import config
 
+while True:
+    try:
+        _connection = connections.create_connection(hosts=[config.ELASTIC_HOST])
+    except:
+        print("Could not connect to DB... retrying in 5 secons.")
+        time.sleep(5)
 
-_connection = connections.create_connection(hosts=[config.ELASTIC_HOST])
 
 class ChatUpdate(DocType):
     channel_id = Keyword()
