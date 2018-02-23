@@ -5,7 +5,7 @@ from telethon.tl.functions.channels import GetFullChannelRequest, JoinChannelReq
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.types import UpdateNewChannelMessage, Message, ChatPhotoEmpty, MessageService, MessageActionChatEditPhoto
 
-from coinrankchat.shared import db, config
+from . import db, config
 from .connection import client
 
 import logging

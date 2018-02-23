@@ -1,19 +1,19 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "32aa90a5dd27d403c89f71ca44bf422de8e1ae5f2d67c25657ea8d1fd9e8733d"
+            "sha256": "171743c9dfc97ff2ba1269368443796fcec7c65d63475c1d34b42778d0e3e3f4"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.6.3",
+            "implementation_version": "3.5.2",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
             "platform_release": "4.4.0-112-generic",
             "platform_system": "Linux",
             "platform_version": "#135-Ubuntu SMP Fri Jan 19 11:48:36 UTC 2018",
-            "python_full_version": "3.6.3",
-            "python_version": "3.6",
+            "python_full_version": "3.5.2",
+            "python_version": "3.5",
             "sys_platform": "linux"
         },
         "pipfile-spec": 6,
@@ -31,17 +31,17 @@
     "default": {
         "boto3": {
             "hashes": [
-                "sha256:8db0b63e0bdf0b188803a4a793a0779369d7b08e45758d0fe0ac610d124bc019",
-                "sha256:0591da93d0c5e8fda7f032cd3e175e93ab0baf7b5174e07aee92b48baeb5582f"
+                "sha256:68a5219f64790e663957e5ceb0162c3c3c6b0115ead68e50b7134c4d34b875c0",
+                "sha256:74e38e9fd0d6450d8a95dae2158cb6f4c7279bb3249b486b4ebe00819db643b9"
             ],
-            "version": "==1.5.32"
+            "version": "==1.5.35"
         },
         "botocore": {
             "hashes": [
-                "sha256:52bc09d2f4439bb89ec9606ad652dedeb5bfe2c4db56f27417f4d2e5e50e4e79",
-                "sha256:d798b9aa32e070f6483a9723fb3296da546a2d9d09f17bb62adc57eb5771aaa6"
+                "sha256:fe78e5944701c59178bc3a0968070636039de434741ef5acda41d99f9b72ceac",
+                "sha256:fe0b45216e3a34507aefdf7a67bf53f9303abb23ba4b1899824d16ecfa0433fd"
             ],
-            "version": "==1.8.46"
+            "version": "==1.8.49"
         },
         "docutils": {
             "hashes": [
@@ -50,6 +50,10 @@
                 "sha256:51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
             ],
             "version": "==0.14"
+        },
+        "e1839a8": {
+            "editable": true,
+            "path": "."
         },
         "elasticsearch": {
             "hashes": [
@@ -64,20 +68,6 @@
                 "sha256:5114a38a88e93a4663782eae07a1e8084ba333c49887335c83de8b8043bc72b2"
             ],
             "version": "==6.1.0"
-        },
-        "falcon": {
-            "hashes": [
-                "sha256:0a66b33458fab9c1e400a9be1a68056abda178eb02a8cb4b8f795e9df20b053b",
-                "sha256:3981f609c0358a9fcdb25b0e7fab3d9e23019356fb429c635ce4133135ae1bc4"
-            ],
-            "version": "==1.4.1"
-        },
-        "gunicorn": {
-            "hashes": [
-                "sha256:75af03c99389535f218cc596c7de74df4763803f7b63eb09d77e92b3956b36c6",
-                "sha256:eee1169f0ca667be05db3351a0960765620dad53f53434262ff8901b68a1b622"
-            ],
-            "version": "==19.7.1"
         },
         "ipaddress": {
             "hashes": [
@@ -121,13 +111,6 @@
                 "sha256:891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
             ],
             "version": "==2.6.1"
-        },
-        "python-mimeparse": {
-            "hashes": [
-                "sha256:a295f03ff20341491bfe4717a39cd0a8cc9afad619ba44b77e86b0ab8a2b8282",
-                "sha256:76e4b03d700a641fd7761d3cd4fdbbdcd787eade1ebfac43f877016328334f78"
-            ],
-            "version": "==1.6.0"
         },
         "rsa": {
             "hashes": [

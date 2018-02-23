@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
-
 from getpass import getpass
 from telethon import TelegramClient
 from telethon.errors import SessionPasswordNeededError, PhoneCodeInvalidError
 
-from coinrankchat.shared import config
+from . import config
 
 def _setup_client():
     client = TelegramClient(
