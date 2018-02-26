@@ -45,7 +45,7 @@ def _handle_update(update):
         _handleNewChannelMessage(update)
 
 def _handleNewChannelMessage(update):
-    log.info("Handling update: %s " % update)
+    log.debug("Handling update: %s " % update)
     if isinstance(update.message, MessageService) and isinstance(update.message.action, MessageActionChatEditPhoto):
         entity = client.get_entity(update.message.to_id)
         _store_entity_or_default_picture(entity)
@@ -55,6 +55,7 @@ def _handleNewChannelMessage(update):
         db.ChatUpdate(
             channel_id=peer_channel.channel_id,
             title=full_channel.chats[0].title,
+            about=full_channel.full_chat.about,
             username=full_channel.chats[0].username,
             participants_count=full_channel.full_chat.participants_count
         ).save()
