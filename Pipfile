@@ -15,6 +15,8 @@ python_version = "3.6"
 telethon = "==0.17.2.1"
 "boto3" = "*"
 "e1839a8" = {editable = true, path = "."}
+requests = "*"
+requests-cache = "*"
 
 
 [dev-packages]

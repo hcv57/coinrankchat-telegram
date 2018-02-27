@@ -12,6 +12,7 @@ class ChatUpdate(DocType):
     channel_id = Keyword()
     title = Text()
     about = Text()
+    pinnedMessage = Text()
     username = Keyword()
     participants_count = Integer()
     created_at = Date()

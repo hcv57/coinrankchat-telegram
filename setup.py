@@ -7,6 +7,8 @@ setup(
     install_requires=[
         'boto3',
         'elasticsearch-dsl',
+        'requests',
+        'requests-cache',
         'telethon==0.17.2.1'
     ]
 )
