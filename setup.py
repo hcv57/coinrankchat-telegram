@@ -9,6 +9,7 @@ setup(
         'elasticsearch-dsl',
         'requests',
         'requests-cache',
-        'telethon==0.17.2.1'
+        'telethon==0.17.2.1',
+        'textblob'
     ]
 )

@@ -17,6 +17,7 @@ telethon = "==0.17.2.1"
 "e1839a8" = {editable = true, path = "."}
 requests = "*"
 requests-cache = "*"
+textblob = "*"
 
 
 [dev-packages]

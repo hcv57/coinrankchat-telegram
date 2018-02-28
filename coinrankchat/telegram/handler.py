@@ -6,7 +6,7 @@ import tempfile
 from telethon.tl.functions.channels import GetFullChannelRequest, JoinChannelRequest, GetMessagesRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.types import UpdateNewChannelMessage, Message, ChatPhotoEmpty, MessageService, MessageActionChatEditPhoto
-
+from textblob import TextBlob
 from . import db, config
 from .connection import client
 
@@ -63,11 +63,15 @@ def _handleNewChannelMessage(update):
             pinnedMessage = client(
                 GetMessagesRequest(peer_channel, [full_channel.full_chat.pinned_msg_id])
             ).messages[0].message
+        sentiment = TextBlob(update.message.message)
         db.ChatUpdate(
             channel_id=peer_channel.channel_id,
+            from_id=update.message.from_id,
             title=full_channel.chats[0].title,
             about=full_channel.full_chat.about,
             pinnedMessage=pinnedMessage,
+            sentimentPolarity=sentiment.polarity,
+            sentimentSubjectivity=sentiment.subjectivity,
             username=full_channel.chats[0].username,
             participants_count=full_channel.full_chat.participants_count
         ).save()
